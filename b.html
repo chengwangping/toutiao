@@ -6,12 +6,15 @@
           <body>
           </body>
            <script type="text/javascript">
-           window.addEventListener('message',function(msg) {
-                 document.body.innerHTML = msg.data;
-           },true);
-           var h  = document.body.scrollHeight;
-            console.log(h);
-           parent.postMessage(h, "*");
+            window.onload=function(){
+               window.addEventListener('message',function(msg) {
+                     document.body.innerHTML = msg.data;
+               },true);
+
+               var h  = document.body.scrollHeight;
+                console.log(h);
+               parent.postMessage(h, "*");
+            }
         </script>
      
  </html>
