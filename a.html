@@ -1,17 +1,26 @@
+
 <!DOCTYPE html>
 <html>
  <head>
      <title>Post Message</title>
  </head>
  <body>
-  这里有数据
- 	<iframe id="child" frameborder="0" scrolling="no" src="https://chengwangping.github.io/toutiao/b.html"></iframe>
+ 	<style>
+ 		*{
+ 			margin: 0;
+ 			padding: 0;
+ 		}
+ 	</style>
+ 	<iframe id="iframe" frameborder="0" scrolling="no" width="100%" src="https://chengwangping.github.io/toutiao/b.html"></iframe>
    <script type="text/javascript">
-
         window.onload=function(){
-
-        	var a = '<div class="warp">上一个页面的数据</div>';
+        	var a = '<div class="warp">上一个页面的数据</div><div class="warp">上一个页面的数据</div><div class="warp">上一个页面的数据</div>';
            window.frames[0].postMessage(a,'*');
+
+			window.addEventListener('message', function(event) {
+				console.log(event)
+				document.getElementById("iframe").style.height = event.data + "px";
+			}, false);
     }
 </script>
 </body>
