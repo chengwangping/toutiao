@@ -10,10 +10,10 @@
                window.addEventListener('message',function(msg) {
                      document.body.innerHTML = msg.data;
                },true);
-
-               var h  = document.body.scrollHeight;
-                console.log(h);
-               parent.postMessage(h, "*");
+               setTimeout(function(){
+                    var h  = document.body.scrollHeight;
+                    parent.postMessage(h, "*");
+               },100);
             }
         </script>
      
